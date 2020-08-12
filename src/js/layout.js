@@ -7,8 +7,12 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
+import { Header } from "./component/header";
 import { Navbar } from "./component/navbar";
+import { Titles } from "./component/titles";
 import { Footer } from "./component/footer";
+import { Cards } from "./component/cards";
+import { Nav } from "react-bootstrap";
 
 //create your first component
 const Layout = () => {
@@ -20,8 +24,30 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+					<Header />
 					<Navbar />
-					<Switch>
+					<Titles />
+					<section className="card-box">
+						<Cards />
+						<Cards />
+						<Cards />
+						<Cards />
+						<Cards />
+						<Cards />
+						<Cards />
+						<Cards />
+						<Cards />
+					</section>
+				</ScrollToTop>
+			</BrowserRouter>
+		</div>
+	);
+};
+
+export default injectContext(Layout);
+
+{
+	/* <Switch>
 						<Route exact path="/">
 							<Home />
 						</Route>
@@ -35,11 +61,5 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
-				</ScrollToTop>
-			</BrowserRouter>
-		</div>
-	);
-};
-
-export default injectContext(Layout);
+					<Footer /> */
+}
