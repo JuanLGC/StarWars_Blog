@@ -23,16 +23,13 @@ const injectContext = PassedComponent => {
 
 		useEffect(
 			() => {
-				if (state.store.people.length == 0) {
+				if (state.store.people.length == 0 && state.store.planets.length == 0) {
 					state.actions.getCharacters();
+					state.actions.getPlanets();
 				} else {
 					console.log(state.store.people);
+					console.log(state.store.planets);
 				}
-				// if (state.store.planets.length == 0) {
-				// 	state.actions.getPlanets();
-				// } else {
-				// 	console.log(state.store.planets);
-				// }
 			},
 			[state.store.people, state.store.planets]
 		);

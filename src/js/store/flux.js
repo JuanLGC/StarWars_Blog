@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						setStore({ people: responseAsJson.results });
+						setStore({ planets: responseAsJson.results });
 						console.log(responseAsJson);
 					})
 					.catch(function(error) {

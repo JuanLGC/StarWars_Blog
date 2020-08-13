@@ -25,7 +25,8 @@ const Layout = () => {
 				<ScrollToTop>
 					<Header />
 					<Navbar />
-					<InfoSection />
+					<InfoSection titleSection="Characters" />
+					<InfoSection titleSection="Planets" />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

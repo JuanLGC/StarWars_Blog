@@ -33,7 +33,7 @@ body {
 .category-navbar {
     margin: 0;
     padding: 0;
-    background-color: rgba(231, 197, 0, 0.39);
+    background-color: rgba(231, 196, 0, 0.671);
 }
 .nav-item:hover {
     background-color: rgba(240, 204, 0, 0.5);
@@ -44,6 +44,11 @@ body {
  .drop_menu{
     background-color: rgb(0, 0, 0);
     color: yellow;
+ }
+
+ .btn-fav{
+    background-color: goldenrod;
+    border: solid 1px goldenrod; 
  }
 
 //Info-BOX

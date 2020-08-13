@@ -12,10 +12,10 @@ export function Cards(props) {
 				alt="Card image cap"
 			/>
 			<div className="card-body">
-				<h5 className="card-title">{props.name.name}</h5>
+				<h5 className="card-title">{props.mainName.name}</h5>
 				<p className="card-text mt-3">
-					- Birth: {props.birthyear.birth_year}
-					<br />- Gender: {props.charGender.gender}
+					- Birth: {props.mainInfo1.birth_year}
+					<br />- Gender: {props.mainInfo2.gender}
 				</p>
 				<div className="d-flex justify-content-between">
 					<Link href="#" className="btn btn-warning">
@@ -29,7 +29,7 @@ export function Cards(props) {
 }
 
 Cards.propTypes = {
-	name: PropTypes.string,
-	birthyear: PropTypes.string,
-	charGender: PropTypes.string
+	mainName: PropTypes.string,
+	mainInfo1: PropTypes.string,
+	mainInfo2: PropTypes.string
 };
