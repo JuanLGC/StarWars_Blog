@@ -42,23 +42,30 @@ body {
 
 // DROPDOWN MENU
  .drop_menu{
-     background-color: rgb(0, 0, 0);
-     color: yellow;
+    background-color: rgb(0, 0, 0);
+    color: yellow;
  }
-//TITLES
-// .category-titles{
 
-// }
+//Info-BOX
+.section-container{
+    margin: 1rem 2rem 1rem 2rem;
+}
+//TITLES
+
+.category-titles{
+    margin: 0 0 0 0;
+}
 
 // Style for CARDS
 
  .card {
      width: 18rem;
+     min-height: 120px;
  }
  .card-box {
     display: flex;
     min-width: 100%;
-    min-height: 190px;
+    min-height: 120px;
     overflow-x: auto; 
  }
  .card-item:hover{
@@ -67,11 +74,15 @@ body {
  }
  .card-item{
     background-image: url("https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    color: rgb(224, 209, 0); 
+    color: goldenrod;
     min-width: 20rem;
     margin: 1.5rem;
  }
-
+.card-title {
+    font-size: 1.5rem;
+    color: goldenrod; 
+    text-decoration: underline;
+}
  //style for category titles 
  
  .category-titles {
@@ -81,4 +92,13 @@ body {
      margin: 0 0 0 1.5rem;
      
 
+ }
+
+ .white-heart {
+    color:rgb(161, 119, 12);
+    
+ }
+
+ .red-heart {
+     color: rgb(206, 0, 0);
  }
