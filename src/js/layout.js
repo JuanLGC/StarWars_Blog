@@ -9,9 +9,8 @@ import injectContext from "./store/appContext";
 
 import { Header } from "./component/header";
 import { Navbar } from "./component/navbar";
-import { Titles } from "./component/titles";
+import { InfoSection } from "./component/infoSection";
 import { Footer } from "./component/footer";
-import { Cards } from "./component/cards";
 import { Nav } from "react-bootstrap";
 
 //create your first component
@@ -26,18 +25,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<Header />
 					<Navbar />
-					<Titles />
-					<section className="card-box">
-						<Cards />
-						<Cards />
-						<Cards />
-						<Cards />
-						<Cards />
-						<Cards />
-						<Cards />
-						<Cards />
-						<Cards />
-					</section>
+					<InfoSection />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

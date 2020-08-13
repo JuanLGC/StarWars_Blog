@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 
 export const Header = () => {
+	const [favoriteItem, setFavoriteItem] = useState(["hola", "el", "API", "Se", "Murio"]);
+
+	function deleteFavorite(elementIndex) {
+		var filtered = favoriteItem.filter(function(value, i) {
+			return elementIndex !== i;
+		});
+		setFavoriteItem(filtered);
+	}
 	return (
 		<nav className="header navbar navbar-dark d-flex justifiy-content-between">
 			<img
@@ -16,15 +24,24 @@ export const Header = () => {
 				</Dropdown.Toggle>
 
 				<Dropdown.Menu className="drop_menu ">
-					<Dropdown.Item className="text-warning" href="#/action-1">
-						Action
-					</Dropdown.Item>
-					<Dropdown.Item className="text-warning" href="#/action-2">
-						Another action
-					</Dropdown.Item>
-					<Dropdown.Item className="text-warning" href="#/action-3">
-						Something else
-					</Dropdown.Item>
+					{favoriteItem.map((item, index) => {
+						return (
+							<Dropdown.Item
+								key={index}
+								className="text-warning d-flex justify-content-between pt-2"
+								href="#/action-1">
+								<p>{item}</p>{" "}
+								<i
+									key={index}
+									className="fa fa-trash pt-1"
+									onClick={() => {
+										deleteFavorite();
+										console.log(favoriteItem);
+									}}
+								/>
+							</Dropdown.Item>
+						);
+					})}
 				</Dropdown.Menu>
 			</Dropdown>
 		</nav>
