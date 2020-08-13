@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { FavoriteButton } from "./favoriteButton";
 
-export function Cards() {
+export function Cards(props) {
 	return (
 		<div className="card-item">
 			<img
@@ -10,14 +12,24 @@ export function Cards() {
 				alt="Card image cap"
 			/>
 			<div className="card-body">
-				<h5 className="card-title">Card title</h5>
-				<p className="card-text">
-					Some quick example text to build on the card title and make up the bulk of the cards content.
+				<h5 className="card-title">{props.name.name}</h5>
+				<p className="card-text mt-3">
+					- Birth: {props.birthyear.birth_year}
+					<br />- Gender: {props.charGender.gender}
 				</p>
-				<a href="#" className="btn btn-primary">
-					Go somewhere
-				</a>
+				<div className="d-flex justify-content-between">
+					<Link href="#" className="btn btn-warning">
+						Learn More
+					</Link>
+					<FavoriteButton />
+				</div>
 			</div>
 		</div>
 	);
 }
+
+Cards.propTypes = {
+	name: PropTypes.string,
+	birthyear: PropTypes.string,
+	charGender: PropTypes.string
+};
