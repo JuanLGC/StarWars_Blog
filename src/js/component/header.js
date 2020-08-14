@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Context } from "../store/appContext";
 
 export const Header = () => {
-	const [favoriteItem, setFavoriteItem] = useState(["hola", "el", "API", "Se", "Murio"]);
+	const { store, actions } = useContext(Context);
 
-	function deleteFavorite(elementIndex) {
-		var filtered = favoriteItem.filter(function(value, i) {
-			return elementIndex !== i;
-		});
-		setFavoriteItem(filtered);
-	}
 	return (
 		<nav className="header navbar navbar-dark d-flex justifiy-content-between">
 			<img
@@ -24,7 +19,7 @@ export const Header = () => {
 				</Dropdown.Toggle>
 
 				<Dropdown.Menu className="drop_menu ">
-					{favoriteItem.map((item, index) => {
+					{store.favoriteItem.map((item, index) => {
 						return (
 							<Dropdown.Item
 								key={index}
@@ -35,7 +30,6 @@ export const Header = () => {
 									key={index}
 									className="fa fa-trash pt-1"
 									onClick={() => {
-										deleteFavorite();
 										console.log(favoriteItem);
 									}}
 								/>
