@@ -14,18 +14,40 @@ export function InfoSection(props) {
 				<h1 className="category-titles">{sectionTitle}</h1>
 				<section className="card-box">
 					{store.planets.map((element, index) => {
-						return <Cards key={index} mainName={element} mainInfo1={element} mainInfo2={element} />;
+						return (
+							<Cards
+								key={index}
+								sTitle={sectionTitle}
+								cardTitle={element}
+								birth={element}
+								charGender={element}
+								planetClimate={element}
+								planetPopulation={element}
+							/>
+						);
 					})}
 				</section>
 			</div>
 		);
+
+		/////////////////////////////////////////////////
 	} else if (sectionTitle == "Characters") {
 		return (
 			<div className="section-container">
 				<h1 className="category-titles">{sectionTitle}</h1>
 				<section className="card-box">
 					{store.people.map((element, index) => {
-						return <Cards key={index} mainName={element} mainInfo1={element} mainInfo2={element} />;
+						return (
+							<Cards
+								key={index}
+								sTitle={sectionTitle}
+								cardTitle={element}
+								birth={element}
+								charGender={element}
+								planetClimate={element}
+								planetPopulation={element}
+							/>
+						);
 					})}
 				</section>
 			</div>
@@ -36,7 +58,6 @@ export function InfoSection(props) {
 InfoSection.propTypes = {
 	array: PropTypes.string,
 	titleSection: PropTypes.string,
-	cardTitle: PropTypes.string,
-	cardInfo1: PropTypes.string,
-	cardInfo2: PropTypes.string
+	infoChar1: PropTypes.string,
+	infoChar2: PropTypes.string
 };

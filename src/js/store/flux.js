@@ -1,3 +1,7 @@
+import React, { useContext, useEffect, useState } from "react";
+var nextPlanet = "https://swapi.dev/api/planets/?page=1";
+var nextPeople = "https://swapi.dev/api/people/?page=1";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -6,40 +10,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: []
 		},
 		actions: {
-			getCharacters: () => {
-				fetch("https://swapi.dev/api/people/")
-					.then(function(response) {
-						if (!response.ok) {
-							throw Error(response.statusText);
-						}
-						// Read the response as json.
-						return response.json();
-					})
-					.then(function(responseAsJson) {
-						// Do stuff with the JSON
-						setStore({ people: responseAsJson.results });
-						//console.log(responseAsJson);
-					})
-					.catch(function(error) {
-						console.log("Looks like there was a problem: \n", error);
+			getCharacters: async () => {
+				let peopleStored = [];
+				for (let i = 0; i < 9; i++) {
+					let response = await fetch(nextPeople);
+					let responseAsJson = await response.json();
+					responseAsJson.results.map(element => {
+						peopleStored.push(element);
 					});
+					setStore({ people: peopleStored });
+					if (responseAsJson.next != null) {
+						nextPeople = responseAsJson.next.replace("http:", "https:");
+					}
+				}
 			},
 
-			getPlanets: () => {
-				fetch("https://swapi.dev/api/planets/")
-					.then(function(response) {
-						if (!response.ok) {
-							throw Error(response.statusText);
-						}
-						return response.json();
-					})
-					.then(function(responseAsJson) {
-						setStore({ planets: responseAsJson.results });
-						console.log(responseAsJson);
-					})
-					.catch(function(error) {
-						console.log("Looks like there was a problem: \n", error);
+			getPlanets: async () => {
+				let planetsStored = [];
+				for (let i = 0; i < 6; i++) {
+					let response = await fetch(nextPlanet);
+					let responseAsJson = await response.json();
+					responseAsJson.results.map(element => {
+						planetsStored.push(element);
 					});
+					setStore({ planets: planetsStored });
+					if (responseAsJson.next != null) {
+						nextPlanet = responseAsJson.next.replace("http:", "https:");
+					}
+				}
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

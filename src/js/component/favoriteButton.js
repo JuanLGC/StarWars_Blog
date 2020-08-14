@@ -12,14 +12,14 @@ export function FavoriteButton() {
 		[favoriteState]
 	);
 	return (
-		<button type="button" className="btn btn-warning">
-			<i
-				className={isFavorite}
-				onClick={() => {
-					setFavoriteState(!favoriteState);
-					console.log(favoriteState);
-				}}
-			/>
+		<button
+			type="button"
+			className="btn btn-warning cardbtn"
+			onClick={() => {
+				setFavoriteState(!favoriteState);
+				console.log(favoriteState);
+			}}>
+			<i className={isFavorite} />
 		</button>
 	);
 }
