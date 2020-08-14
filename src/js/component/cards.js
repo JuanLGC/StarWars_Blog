@@ -18,10 +18,10 @@ export function Cards(props) {
 					<br />- Gender: {props.mainInfo2.gender}
 				</p>
 				<div className="d-flex justify-content-between">
-					<Link href="#" className="btn btn-warning">
+					<Link to="/" className="btn btn-warning">
 						Learn More
 					</Link>
-					<FavoriteButton />
+					<FavoriteButton nameFavItem={props.mainName.name} />
 				</div>
 			</div>
 		</div>
